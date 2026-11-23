@@ -1,0 +1,7 @@
+{
+  "name": "daily-science-private",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "dependencies": { "@vercel/functions": "3.11.3" }
+}

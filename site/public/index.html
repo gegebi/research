@@ -1,0 +1,14 @@
+<!doctype html><html lang="ko"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>과학기술 데일리 브리핑</title>
+<style>body{font:16px/1.8 -apple-system,"Apple SD Gothic Neo",sans-serif;max-width:720px;margin:40px auto;padding:0 16px}
+li{margin:.4rem 0}@media(prefers-color-scheme:dark){body{background:#121214;color:#eee}a{color:#8ea6ff}}</style>
+<h1>과학기술 데일리 브리핑</h1>
+<button id=r style="padding:.5rem 1rem;font:inherit">지금 새로고침</button> <span id=m></span>
+<ul><li><a href="2026-11-23.html">2026-11-23</a></li></ul>
+<script>
+r.onclick=async()=>{r.disabled=true;m.textContent="요청 중...";
+try{const x=await fetch("/api/refresh",{method:"POST"});
+m.textContent=x.ok?"시작했어요. 2~5분 뒤 새로고침하면 새 리포트가 보여요.":"실패("+x.status+")";}
+catch(e){m.textContent="실패";}setTimeout(()=>r.disabled=false,30000);};
+</script></html>

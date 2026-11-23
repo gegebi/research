@@ -1,0 +1,9 @@
+.env
+.env.local
+old/
+run.log
+.DS_Store
+node_modules/
+.vercel/
+com.research.daily-science.plist
+.github/
