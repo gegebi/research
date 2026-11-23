@@ -19,103 +19,97 @@ WEEK = "월화수목금토일"
 LANGS = [("영어권", "en", "영어"), ("중국어권", "zh", "중국어"), ("일본어권", "ja", "일본어"), ("한국어권", "ko", "한국어")]
 LANG_CLASS = {k: c for k, c, _ in LANGS}
 
-FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
-         '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
-         '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?'
-         'family=Noto+Sans+KR:wght@400;500&family=Noto+Serif+KR:wght@500;700&display=swap">')
+FONTS = ""
 
 CSS = """
 :root{
   color-scheme:light dark;
-  --bg:#f2f4f6; --ink:#101c26; --ink2:#4a5a68; --rule:#d3dae0; --accent:#0b5c7a; --accent-ink:#fff;
-  --flag-bg:#fff4d6; --flag-ink:#6b4a00;
-  --en:#3f63b5; --zh:#c0503e; --ja:#c28a14; --ko:#2e8b6a;
-  --serif:"Noto Serif KR","AppleMyungjo","Nanum Myeongjo",serif;
-  --sans:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --bg:#fff; --ink:#1b1b1f; --ink2:#5a5e6b; --rule:#e5e5ea; --accent:#3b5bdb; --bar:#5b7cfa; --quote:#f4f6fb;
+  --btn-ink:#fff; --flag-bg:#fff1cc; --flag-ink:#6b4a00;
+  --en:#5b7cfa; --zh:#e5675c; --ja:#e0a43a; --ko:#3fb68b;
+  --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",system-ui,sans-serif;
 }
 @media (prefers-color-scheme:dark){:root{
-  --bg:#0e161d; --ink:#e6ecf1; --ink2:#9aabb9; --rule:#26343f; --accent:#6bbbd9; --accent-ink:#06222e;
-  --flag-bg:#3a2f10; --flag-ink:#f1d48a;
-  --en:#7c9bea; --zh:#e27f6d; --ja:#d9a93f; --ko:#5dbb92;
+  --bg:#17171a; --ink:#e8e8ec; --ink2:#a0a4b0; --rule:#2e3037; --accent:#8ea6ff; --bar:#5b7cfa; --quote:#22242b;
+  --btn-ink:#10131f; --flag-bg:#3a2f10; --flag-ink:#f1d48a;
 }}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.8 var(--sans);word-break:keep-all;overflow-wrap:break-word}
-a{color:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.75 var(--sans);word-break:keep-all;overflow-wrap:break-word}
+a{color:var(--accent)}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
-.wrap{max-width:40rem;margin:0 auto;padding:0 1rem}
-.wide{max-width:64rem}
+.wrap{max-width:44rem;margin:0 auto;padding:0 1rem}
 
 /* 상단 바 */
-.bar{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+.bar{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
 .bar .wrap{display:flex;align-items:center;gap:1rem;height:3rem}
-.bar a.home{font:700 .95rem var(--serif);text-decoration:none;white-space:nowrap}
+.bar a.home{font-weight:700;font-size:.95rem;color:var(--ink);text-decoration:none;white-space:nowrap}
 .bar nav{display:flex;gap:1.1rem;overflow-x:auto;scrollbar-width:none;margin-left:auto}
 .bar nav::-webkit-scrollbar{display:none}
 .bar nav a{font-size:.875rem;color:var(--ink2);text-decoration:none;white-space:nowrap;padding:.5rem 0}
-.bar nav a:hover{color:var(--ink)}
+.bar nav a:hover{color:var(--accent)}
 
 /* 머리글 */
-.head{padding:2.5rem 0 1.5rem}
-.date{font:700 clamp(2.25rem,9vw,3.5rem)/1.15 var(--serif);letter-spacing:-.02em;margin:0}
-.date small{display:block;font:400 .9rem/1.6 var(--sans);letter-spacing:0;color:var(--ink2);margin-bottom:.35rem}
-.lede{margin:1.5rem 0 0;font:500 1.0625rem/1.85 var(--serif)}
-.lede p{margin:0 0 .85rem}
+.head{padding:2.25rem 0 .5rem}
+.date{font:700 clamp(1.75rem,6vw,2.25rem)/1.25 var(--sans);letter-spacing:-.02em;margin:0}
+.date small{display:block;font:400 .875rem/1.6 var(--sans);letter-spacing:0;color:var(--ink2);margin-bottom:.2rem}
+.lede{margin:1.5rem 0 0;padding:.9rem 1.25rem;background:var(--quote);border-left:4px solid var(--bar);border-radius:0 .5rem .5rem 0}
+.lede p{margin:.45rem 0}
 
 /* 언어 비율 막대 */
-.mix{margin:1.75rem 0 0}
-.mix .strip{display:flex;height:.5rem;border-radius:.25rem;overflow:hidden;gap:2px}
+.mix{margin:1.5rem 0 0}
+.mix .strip{display:flex;height:.4rem;border-radius:.2rem;overflow:hidden;gap:2px}
 .mix .strip i{display:block;min-width:.5rem}
-.mix ul{display:flex;flex-wrap:wrap;gap:.25rem 1.1rem;list-style:none;margin:.65rem 0 0;padding:0;font-size:.8125rem;color:var(--ink2)}
+.mix ul{display:flex;flex-wrap:wrap;gap:.25rem 1.1rem;list-style:none;margin:.6rem 0 0;padding:0;font-size:.8125rem;color:var(--ink2)}
 .mix li{display:flex;align-items:center;gap:.4rem}
 .en{--c:var(--en)}.zh{--c:var(--zh)}.ja{--c:var(--ja)}.ko{--c:var(--ko)}
 .strip i,.dot{background:var(--c)}
 .dot{display:inline-block;width:.5rem;height:.5rem;border-radius:50%;flex:none}
 
 /* 섹션과 기사 */
-section{padding-top:1rem;scroll-margin-top:3rem}
-h2{font:700 1.5rem/1.35 var(--serif);letter-spacing:-.01em;margin:2.75rem 0 .25rem}
-.intro{color:var(--ink2);font-size:.9375rem;margin:.25rem 0 0}
-article{padding:1.5rem 0;border-bottom:1px solid var(--rule)}
+section{scroll-margin-top:3rem}
+h2{font:700 1.4rem/1.4 var(--sans);letter-spacing:-.01em;margin:2.5rem 0 .25rem;padding-bottom:.4rem;border-bottom:2px solid var(--rule)}
+.intro{color:var(--ink2);font-size:.9375rem;margin:.6rem 0 0}
+article{padding:1.4rem 0;border-bottom:1px solid var(--rule)}
 article:last-of-type{border-bottom:0}
-.meta{display:flex;flex-wrap:wrap;align-items:center;gap:.25rem .6rem;font-size:.8125rem;color:var(--ink2);margin:0 0 .4rem}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:.25rem .6rem;font-size:.8125rem;color:var(--ink2);margin:0 0 .35rem}
 .meta .dot{margin-right:-.2rem}
 .flag{background:var(--flag-bg);color:var(--flag-ink);border-radius:.25rem;padding:0 .4rem;font-size:.75rem;line-height:1.6}
-h3{font:700 1.1875rem/1.5 var(--serif);margin:0 0 .5rem;letter-spacing:-.01em}
-h3 a{text-decoration:none}
-h3 a:hover{text-decoration:underline;text-underline-offset:.2em}
-article p{margin:0 0 .75rem}
-.after{border-left:3px solid var(--accent);padding-left:.9rem;margin:1rem 0 .75rem}
-.after b{font-weight:500;color:var(--accent);margin-right:.35rem}
+h3{font:700 1.1875rem/1.5 var(--sans);margin:0 0 .45rem;letter-spacing:-.01em}
+h3 a{color:var(--ink);text-decoration:none}
+h3 a:hover{color:var(--accent);text-decoration:underline;text-underline-offset:.2em}
+article p{margin:0 0 .7rem}
+.after{border-left:3px solid var(--bar);padding-left:.9rem;margin:1rem 0 .75rem}
+.after b{font-weight:700;color:var(--accent);margin-right:.4rem}
 .cite{font-size:.8125rem;color:var(--ink2);margin:0}
 
 /* 글 아래 */
-details{margin:2.5rem 0 0;color:var(--ink2);font-size:.875rem}
+details{margin:2.25rem 0 0;color:var(--ink2);font-size:.875rem}
 summary{cursor:pointer;padding:.5rem 0}
 details ul{margin:.5rem 0 0;padding-left:1.1rem}
 details li{margin:.25rem 0;word-break:break-all}
-.pager{display:flex;justify-content:space-between;gap:1rem;margin:3rem 0 0;padding:1.25rem 0;border-top:1px solid var(--rule);font-size:.9375rem}
-.pager a{text-decoration:none;color:var(--accent)}
+.pager{display:flex;justify-content:space-between;gap:1rem;margin:2.75rem 0 0;padding:1.25rem 0;border-top:1px solid var(--rule);font-size:.9375rem}
+.pager a{text-decoration:none}
 .pager a:hover{text-decoration:underline}
-.pager span{color:var(--ink2)}
-footer{padding:1.5rem 0 3rem;color:var(--ink2);font-size:.8125rem}
+footer{padding:1.25rem 0 3rem;color:var(--ink2);font-size:.8125rem}
 
 /* 목록 페이지 */
-.top{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:1rem;padding:2.5rem 0 .5rem}
-.top h1{font:700 1.5rem/1.3 var(--serif);margin:0;letter-spacing:-.01em}
-.top p{margin:.25rem 0 0;color:var(--ink2);font-size:.9375rem}
-button{font:500 .9375rem var(--sans);background:var(--accent);color:var(--accent-ink);border:0;border-radius:.5rem;padding:.6rem 1.1rem;cursor:pointer;min-height:2.75rem}
+.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1rem;padding:2.25rem 0 1rem}
+.top h1{font:700 1.5rem/1.3 var(--sans);margin:0;letter-spacing:-.02em}
+.top p{margin:.3rem 0 0;color:var(--ink2);font-size:.9375rem}
+button{font:700 .9375rem var(--sans);background:var(--bar);color:#fff;border:0;border-radius:.5rem;padding:.6rem 1.1rem;cursor:pointer;min-height:2.75rem}
+button:hover:not(:disabled){filter:brightness(1.1)}
 button:disabled{opacity:.55;cursor:default}
 #msg{flex-basis:100%;margin:0;color:var(--ink2);font-size:.875rem;min-height:1.4em}
-.latest{padding:1rem 0 2rem;border-bottom:1px solid var(--rule)}
-.latest .read{display:inline-block;margin-top:1.5rem;font-weight:500;color:var(--accent);text-decoration:none}
+.latest{padding:.5rem 0 1.75rem;border-bottom:2px solid var(--rule)}
+.latest .read{display:inline-block;margin-top:1.25rem;font-weight:700;text-decoration:none}
 .latest .read:hover{text-decoration:underline}
 .days{list-style:none;margin:0;padding:0}
-.days a{display:grid;grid-template-columns:7.5rem 1fr;gap:.25rem 1.25rem;padding:1.1rem 0;border-bottom:1px solid var(--rule);text-decoration:none}
-.days a:hover .d{text-decoration:underline;text-underline-offset:.2em}
-.days .d{font:700 1.0625rem var(--serif)}
+.days a{display:grid;grid-template-columns:8.5rem 1fr;gap:.25rem 1.25rem;padding:1rem 0;border-bottom:1px solid var(--rule);text-decoration:none;color:var(--ink)}
+.days a:hover .d{color:var(--accent)}
+.days .d{font-weight:700}
 .days .s{color:var(--ink2);font-size:.9375rem}
-.days h2{margin-top:2.25rem}
+.days h2{margin-top:2rem}
 @media (max-width:30rem){.days a{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
 """
@@ -249,8 +243,8 @@ def head_html(title):
     return (f'<!doctype html><html lang="ko"><head><meta charset="utf-8">'
             f'<meta name="viewport" content="width=device-width,initial-scale=1">'
             f'<meta name="robots" content="noindex,nofollow"><meta name="color-scheme" content="light dark">'
-            f'<meta name="theme-color" content="#f2f4f6" media="(prefers-color-scheme:light)">'
-            f'<meta name="theme-color" content="#0e161d" media="(prefers-color-scheme:dark)">'
+            f'<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme:light)">'
+            f'<meta name="theme-color" content="#17171a" media="(prefers-color-scheme:dark)">'
             f'<title>{esc(title)}</title>{FONTS}<style>{CSS}</style></head><body>')
 
 
