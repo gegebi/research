@@ -72,7 +72,7 @@ FEEDS = [
 
 # ---------------------------------------------------------------- 공통
 def load_key():
-    key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
+    key = (os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY") or "").strip()
     env = ROOT / ".env"
     if not key and env.exists():
         for line in env.read_text().splitlines():
