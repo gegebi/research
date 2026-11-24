@@ -245,6 +245,8 @@ def head_html(title):
             f'<meta name="robots" content="noindex,nofollow"><meta name="color-scheme" content="light dark">'
             f'<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme:light)">'
             f'<meta name="theme-color" content="#17171a" media="(prefers-color-scheme:dark)">'
+            f'<link rel="icon" href="/favicon.svg" type="image/svg+xml">'
+            f'<link rel="apple-touch-icon" href="/apple-touch-icon.png">'
             f'<title>{esc(title)}</title>{FONTS}<style>{CSS}</style></head><body>')
 
 

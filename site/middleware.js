@@ -1,7 +1,8 @@
 // 모든 요청을 HTTP Basic 인증으로 막는다. 비밀번호는 코드에 없고 Vercel 환경변수 SITE_PASSWORD에만 있다.
 import { next } from '@vercel/functions';
 
-export const config = { matcher: '/:path*' };
+// 아이콘 두 개는 민감하지 않고, 홈 화면 추가 때 인증 없이 불러와야 해서 제외한다
+export const config = { matcher: '/((?!favicon\\.svg$|apple-touch-icon\\.png$).*)' };
 
 function safeEqual(a, b) {
   if (a.length !== b.length) return false;
