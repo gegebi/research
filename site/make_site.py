@@ -97,10 +97,6 @@ footer{padding:1.25rem 0 3rem;color:var(--ink2);font-size:.8125rem}
 .top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1rem;padding:2.25rem 0 1rem}
 .top h1{font:700 1.5rem/1.3 var(--sans);margin:0;letter-spacing:-.02em}
 .top p{margin:.3rem 0 0;color:var(--ink2);font-size:.9375rem}
-button{font:700 .9375rem var(--sans);background:var(--bar);color:#fff;border:0;border-radius:.5rem;padding:.6rem 1.1rem;cursor:pointer;min-height:2.75rem}
-button:hover:not(:disabled){filter:brightness(1.1)}
-button:disabled{opacity:.55;cursor:default}
-#msg{flex-basis:100%;margin:0;color:var(--ink2);font-size:.875rem;min-height:1.4em}
 .latest{padding:.5rem 0 1.75rem;border-bottom:2px solid var(--rule)}
 .latest .read{display:inline-block;margin-top:1.25rem;font-weight:700;text-decoration:none}
 .latest .read:hover{text-decoration:underline}
@@ -268,21 +264,6 @@ def report_page(day, doc, prev_day, next_day):
             + "</body></html>")
 
 
-REFRESH_JS = """
-const b=document.getElementById('r'),m=document.getElementById('msg');
-b.addEventListener('click',async()=>{
-  b.disabled=true;m.textContent='요청하는 중이에요.';
-  try{
-    const x=await fetch('/api/refresh',{method:'POST'});
-    if(x.ok){m.textContent='새 리포트를 만들기 시작했어요. 2~5분 뒤 이 페이지를 새로고침하면 보여요.';}
-    else if(x.status===500){m.textContent='새로고침 기능이 아직 설정되지 않았어요.';}
-    else{m.textContent='GitHub에 요청하지 못했어요. 잠시 뒤 다시 눌러 주세요. (오류 '+x.status+')';}
-  }catch(e){m.textContent='네트워크에 연결하지 못했어요. 연결을 확인하고 다시 눌러 주세요.';}
-  setTimeout(()=>{b.disabled=false},30000);
-});
-"""
-
-
 def index_page(days, docs):
     latest = days[0]
     d0 = docs[latest]
@@ -305,9 +286,8 @@ def index_page(days, docs):
     return (head_html("과학기술 데일리 브리핑")
             + '<main class="wrap"><div class="top"><div><h1>과학기술 데일리 브리핑</h1>'
               '<p>전 세계 네 언어권 매체의 과학기술 소식을 매일 한국어로 정리합니다.</p></div>'
-              '<button id="r" type="button">지금 새로고침</button><p id="msg" role="status"></p></div>'
-            + feature + older + "</main>"
-            + f"<script>{REFRESH_JS}</script></body></html>")
+              '</div>'
+            + feature + older + "</main></body></html>")
 
 
 def main():

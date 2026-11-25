@@ -74,10 +74,6 @@ footer{padding:1.25rem 0 3rem;color:var(--ink2);font-size:.8125rem}
 .top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1rem;padding:2.25rem 0 1rem}
 .top h1{font:700 1.5rem/1.3 var(--sans);margin:0;letter-spacing:-.02em}
 .top p{margin:.3rem 0 0;color:var(--ink2);font-size:.9375rem}
-button{font:700 .9375rem var(--sans);background:var(--bar);color:#fff;border:0;border-radius:.5rem;padding:.6rem 1.1rem;cursor:pointer;min-height:2.75rem}
-button:hover:not(:disabled){filter:brightness(1.1)}
-button:disabled{opacity:.55;cursor:default}
-#msg{flex-basis:100%;margin:0;color:var(--ink2);font-size:.875rem;min-height:1.4em}
 .latest{padding:.5rem 0 1.75rem;border-bottom:2px solid var(--rule)}
 .latest .read{display:inline-block;margin-top:1.25rem;font-weight:700;text-decoration:none}
 .latest .read:hover{text-decoration:underline}
@@ -89,16 +85,4 @@ button:disabled{opacity:.55;cursor:default}
 .days h2{margin-top:2rem}
 @media (max-width:30rem){.days a{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
-</style></head><body><main class="wrap"><div class="top"><div><h1>과학기술 데일리 브리핑</h1><p>전 세계 네 언어권 매체의 과학기술 소식을 매일 한국어로 정리합니다.</p></div><button id="r" type="button">지금 새로고침</button><p id="msg" role="status"></p></div><div class="latest"><h2 class="date" style="margin:0"><small>수요일</small>2026년 11월 25일</h2><div class="lede"><p>트라우마가 뇌에 분자적 흔적을 남기고 임신이 뇌 구조를 변화시키는 등 뇌 관련 연구 성과가 나왔습니다.</p></div><div class="mix" role="group" aria-label="언어권별 기사 수"><div class="strip" aria-hidden="true"><i class="en" style="flex:8"></i><i class="zh" style="flex:2"></i><i class="ja" style="flex:2"></i><i class="ko" style="flex:3"></i></div><ul><li class="en"><span class="dot"></span>영어 8건</li><li class="zh"><span class="dot"></span>중국어 2건</li><li class="ja"><span class="dot"></span>일본어 2건</li><li class="ko"><span class="dot"></span>한국어 3건</li></ul></div><a class="read" href="2026-11-25.html">오늘 리포트 읽기</a></div><ul class="days"><li><h2>지난 리포트</h2></li><li><a href="2026-11-24.html"><span class="d">2026년 11월 24일</span><span class="s">극지방 해빙이 따뜻한 물에 의해 녹고 있으며, AI 개발사 오픈AI는 자체 AI 진화 지표를 공개하고 개발 제한을 제안했습니다. 또한, 우주 속…</span></a></li><li><a href="2026-11-23.html"><span class="d">2026년 11월 23일</span><span class="s">NASA 보이저 1호가 1광일 거리에 도달하며 심우주 탐사의 새 이정표를 세웠고, 우주 공간에서 원자를 9.7 피코켈빈까지 냉각하는 신기록이 나…</span></a></li></ul></main><script>
-const b=document.getElementById('r'),m=document.getElementById('msg');
-b.addEventListener('click',async()=>{
-  b.disabled=true;m.textContent='요청하는 중이에요.';
-  try{
-    const x=await fetch('/api/refresh',{method:'POST'});
-    if(x.ok){m.textContent='새 리포트를 만들기 시작했어요. 2~5분 뒤 이 페이지를 새로고침하면 보여요.';}
-    else if(x.status===500){m.textContent='새로고침 기능이 아직 설정되지 않았어요.';}
-    else{m.textContent='GitHub에 요청하지 못했어요. 잠시 뒤 다시 눌러 주세요. (오류 '+x.status+')';}
-  }catch(e){m.textContent='네트워크에 연결하지 못했어요. 연결을 확인하고 다시 눌러 주세요.';}
-  setTimeout(()=>{b.disabled=false},30000);
-});
-</script></body></html>
+</style></head><body><main class="wrap"><div class="top"><div><h1>과학기술 데일리 브리핑</h1><p>전 세계 네 언어권 매체의 과학기술 소식을 매일 한국어로 정리합니다.</p></div></div><div class="latest"><h2 class="date" style="margin:0"><small>수요일</small>2026년 11월 25일</h2><div class="lede"><p>트라우마가 뇌에 분자적 흔적을 남기고 임신이 뇌 구조를 변화시키는 등 뇌 관련 연구 성과가 나왔습니다.</p></div><div class="mix" role="group" aria-label="언어권별 기사 수"><div class="strip" aria-hidden="true"><i class="en" style="flex:8"></i><i class="zh" style="flex:2"></i><i class="ja" style="flex:2"></i><i class="ko" style="flex:3"></i></div><ul><li class="en"><span class="dot"></span>영어 8건</li><li class="zh"><span class="dot"></span>중국어 2건</li><li class="ja"><span class="dot"></span>일본어 2건</li><li class="ko"><span class="dot"></span>한국어 3건</li></ul></div><a class="read" href="2026-11-25.html">오늘 리포트 읽기</a></div><ul class="days"><li><h2>지난 리포트</h2></li><li><a href="2026-11-24.html"><span class="d">2026년 11월 24일</span><span class="s">극지방 해빙이 따뜻한 물에 의해 녹고 있으며, AI 개발사 오픈AI는 자체 AI 진화 지표를 공개하고 개발 제한을 제안했습니다. 또한, 우주 속…</span></a></li><li><a href="2026-11-23.html"><span class="d">2026년 11월 23일</span><span class="s">NASA 보이저 1호가 1광일 거리에 도달하며 심우주 탐사의 새 이정표를 세웠고, 우주 공간에서 원자를 9.7 피코켈빈까지 냉각하는 신기록이 나…</span></a></li></ul></main></body></html>
